@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            SkyTech Labs - Affordable Business Websites Sydney | From $995
+        </title>
+        <meta
+            name="description"
+            content="Professional websites for Sydney's local businesses. Fast, affordable, and built to convert. Tradies, cafes, clinics & coaches trust us. Free website audit available."
+        />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            html {
+                font-family: 'Inter', sans-serif;
+            }
+
+            .gradient-hero {
+                background: linear-gradient(
+                    135deg,
+                    #0f172a 0%,
+                    #1e3a5f 50%,
+                    #0f172a 100%
+                );
+            }
+
+            .gradient-cta {
+                background: linear-gradient(135deg, #3b87d9 0%, #1e40af 100%);
+            }
+
+            .gradient-accent {
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            }
+
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+
+            .pulse-glow {
+                animation: pulseGlow 2s ease-in-out infinite;
+            }
+
+            @keyframes pulseGlow {
+                0%,
+                100% {
+                    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+                }
+
+                50% {
+                    box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
+                }
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* FAQ Chat Bubbles */
+            .faq-chat {
+                max-width: 700px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .chat-pair {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: chatFadeIn 0.5s ease forwards;
+            }
+
+            .chat-pair:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .chat-pair:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .chat-pair:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .chat-pair:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            @keyframes chatFadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .chat-question {
+                align-self: flex-end;
+                max-width: 85%;
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                color: #0f172a;
+                padding: 1rem 1.25rem;
+                border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+                font-weight: 600;
+                font-size: 1rem;
+                position: relative;
+                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            }
+
+            .chat-answer {
+                align-self: flex-start;
+                max-width: 85%;
+                display: flex;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+
+            .chat-avatar {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.75rem;
+                color: white;
+                box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+            }
+
+            .chat-bubble {
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 1rem 1.25rem;
+                border-radius: 0.25rem 1.25rem 1.25rem 1.25rem;
+                color: #cbd5e1;
+                line-height: 1.6;
+                font-size: 0.95rem;
+                transition: all 0.3s ease;
+            }
+
+            .chat-bubble:hover {
+                background: rgba(255, 255, 255, 0.12);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+        </style>
+    </head>
+
+    <body class="bg-slate-900 text-white antialiased">
+        <!-- Header -->
+        <header
+            class="fixed top-0 z-50 w-full bg-slate-900/95 backdrop-blur-sm border-b border-slate-800"
+        >
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a href="#home" class="flex items-center space-x-3">
+                        <img
+                            src="logo.jpg"
+                            alt="SkyTech Labs"
+                            class="h-10 w-auto rounded-md"
+                        />
+                        <span class="text-xl font-bold text-white"
+                            >SkyTech Labs</span
+                        >
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="#pricing"
+                            class="text-slate-300 hover:text-white transition"
+                            >Pricing</a
+                        >
+                        <a
+                            href="#how-it-works"
+                            class="text-slate-300 hover:text-white transition"
+                            >How It Works</a
+                        >
+                        <a
+                            href="#faq"
+                            class="text-slate-300 hover:text-white transition"
+                            >FAQ</a
+                        >
+                        <a
+                            href="#contact"
+                            class="gradient-accent text-white px-5 py-2 rounded-lg font-semibold hover:opacity-90 transition"
+                            >Free Audit</a
+                        >
+                    </div>
+                    <button id="menu-btn" class="md:hidden p-2 text-slate-400">
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden bg-slate-800 border-t border-slate-700"
+            >
+                <div class="px-4 py-4 space-y-3">
+                    <a
+                        href="#pricing"
+                        class="block text-slate-300 hover:text-white"
+                        >Pricing</a
+                    >
+                    <a
+                        href="#how-it-works"
+                        class="block text-slate-300 hover:text-white"
+                        >How It Works</a
+                    >
+                    <a href="#faq" class="block text-slate-300 hover:text-white"
+                        >FAQ</a
+                    >
+                    <a
+                        href="#contact"
+                        class="block gradient-accent text-white px-4 py-2 rounded-lg font-semibold text-center"
+                        >Free Audit</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section
+                id="home"
+                class="gradient-hero pt-24 pb-16 md:pt-32 md:pb-24"
+            >
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div
+                            class="inline-flex items-center bg-amber-500/20 text-amber-400 px-4 py-2 rounded-full text-sm font-medium mb-6"
+                        >
+                            <svg
+                                class="w-4 h-4 mr-2"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                />
+                            </svg>
+                            Sydney's Trusted Web Agency
+                        </div>
+                        <h1
+                            class="text-4xl md:text-6xl font-black leading-tight mb-6"
+                        >
+                            Professional Websites That<br />
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500"
+                                >Get Customers Calling</span
+                            >
+                        </h1>
+                        <p
+                            class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto"
+                        >
+                            Fast, affordable websites for Sydney's local
+                            businesses. Built to convert visitors into paying
+                            customers — not just look pretty.
+                        </p>
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+                        >
+                            <a
+                                href="#contact"
+                                class="gradient-accent text-white px-8 py-4 rounded-xl font-bold text-lg pulse-glow hover:opacity-90 transition"
+                            >
+                                Get Your FREE Website Audit →
+                            </a>
+                            <a
+                                href="#pricing"
+                                class="border-2 border-slate-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition"
+                            >
+                                See Pricing
+                            </a>
+                        </div>
+                        <div
+                            class="flex flex-wrap justify-center gap-6 text-sm text-slate-400"
+                        >
+                            <div class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-emerald-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    /></svg
+                                >Sydney-Based Team
+                            </div>
+                            <div class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-emerald-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    /></svg
+                                >7-14 Day Delivery
+                            </div>
+                            <div class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-emerald-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"
+                                    /></svg
+                                >No Hidden Fees
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Proof Bar -->
+            <section class="bg-slate-800 py-6 border-y border-slate-700">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <p class="text-slate-400 mb-4">
+                        Trusted by local businesses across Sydney
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >🔧 Tradies</span
+                        >
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >☕ Cafes</span
+                        >
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >🏥 Health Clinics</span
+                        >
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >💪 Personal Trainers</span
+                        >
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >🏠 Real Estate</span
+                        >
+                        <span
+                            class="bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm"
+                            >📚 Coaches</span
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem/Solution -->
+            <section class="py-16 md:py-24 bg-slate-900">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Is Your Website
+                                <span class="text-red-400"
+                                    >Costing You Customers?</span
+                                >
+                            </h2>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Outdated design that doesn't reflect
+                                        your quality
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Not mobile-friendly (50%+ of visitors
+                                        leave)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        No clear call-to-action or contact form
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-red-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Slow loading = poor Google rankings
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fade-in">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                We Build Sites That
+                                <span class="text-emerald-400"
+                                    >Get Results</span
+                                >
+                            </h2>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Modern, professional design that builds
+                                        trust
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Mobile-first — looks perfect on any
+                                        device
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Clear CTAs that convert visitors to
+                                        leads
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg
+                                        class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                    <p class="text-slate-300">
+                                        Lightning-fast hosting for better SEO
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="py-16 md:py-24 bg-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            Simple, Transparent Pricing
+                        </h2>
+                        <p class="text-xl text-slate-400">
+                            No surprises. No hidden fees. Just results.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <!-- Starter -->
+                        <div
+                            class="bg-slate-900 rounded-2xl p-8 border border-slate-700 card-hover"
+                        >
+                            <h3 class="text-xl font-bold mb-2">Starter</h3>
+                            <p class="text-slate-400 mb-4">
+                                Perfect for new businesses
+                            </p>
+                            <div class="text-4xl font-black mb-6">$995</div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >3-page website
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Mobile responsive
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Contact form
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >7-day delivery
+                                </li>
+                            </ul>
+                            <a
+                                href="#contact"
+                                class="block text-center bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition"
+                                >Get Started</a
+                            >
+                        </div>
+                        <!-- Professional -->
+                        <div
+                            class="bg-gradient-to-b from-amber-500/20 to-slate-900 rounded-2xl p-8 border-2 border-amber-500 card-hover relative"
+                        >
+                            <div
+                                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-900 px-4 py-1 rounded-full text-sm font-bold"
+                            >
+                                MOST POPULAR
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Professional</h3>
+                            <p class="text-slate-400 mb-4">
+                                For growing businesses
+                            </p>
+                            <div class="text-4xl font-black mb-6">$1,500</div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >5-page website
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >SEO basics setup
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Google Analytics
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Social media links
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >10-day delivery
+                                </li>
+                            </ul>
+                            <a
+                                href="#contact"
+                                class="block text-center gradient-accent text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
+                                >Get Started</a
+                            >
+                        </div>
+                        <!-- Premium -->
+                        <div
+                            class="bg-slate-900 rounded-2xl p-8 border border-slate-700 card-hover"
+                        >
+                            <h3 class="text-xl font-bold mb-2">Premium</h3>
+                            <p class="text-slate-400 mb-4">
+                                Full-featured solution
+                            </p>
+                            <div class="text-4xl font-black mb-6">$2,500</div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >10-page website
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Booking system
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Advanced SEO
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >Priority support
+                                </li>
+                                <li class="flex items-center text-slate-300">
+                                    <svg
+                                        class="w-5 h-5 text-emerald-400 mr-3"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"
+                                        /></svg
+                                    >14-day delivery
+                                </li>
+                            </ul>
+                            <a
+                                href="#contact"
+                                class="block text-center bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition"
+                                >Get Started</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-16 md:py-24 bg-slate-900">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            What Our Clients Say
+                        </h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div
+                            class="bg-slate-800 p-6 rounded-2xl border border-slate-700"
+                        >
+                            <div class="flex text-amber-400 mb-4">★★★★★</div>
+                            <p class="text-slate-300 mb-4">
+                                "Finally a website that actually brings in
+                                customers! SkyTech delivered exactly what they
+                                promised, on time and within budget."
+                            </p>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold mr-3"
+                                >
+                                    JM
+                                </div>
+                                <div>
+                                    <div class="font-semibold">James M.</div>
+                                    <div class="text-sm text-slate-400">
+                                        Plumber, Western Sydney
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800 p-6 rounded-2xl border border-slate-700"
+                        >
+                            <div class="flex text-amber-400 mb-4">★★★★★</div>
+                            <p class="text-slate-300 mb-4">
+                                "Our cafe's new site looks amazing and we've
+                                seen a 40% increase in online reservations. Best
+                                investment we've made."
+                            </p>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center font-bold mr-3"
+                                >
+                                    SL
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Sarah L.</div>
+                                    <div class="text-sm text-slate-400">
+                                        Cafe Owner, Newtown
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800 p-6 rounded-2xl border border-slate-700"
+                        >
+                            <div class="flex text-amber-400 mb-4">★★★★★</div>
+                            <p class="text-slate-300 mb-4">
+                                "Professional, responsive, and they actually
+                                listened to what I needed. My coaching business
+                                has never looked more legit."
+                            </p>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center font-bold mr-3"
+                                >
+                                    MT
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Mike T.</div>
+                                    <div class="text-sm text-slate-400">
+                                        Business Coach, CBD
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section id="how-it-works" class="py-16 md:py-24 bg-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            How It Works
+                        </h2>
+                        <p class="text-xl text-slate-400">
+                            Three simple steps to your new website
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-2xl font-black mx-auto mb-4"
+                            >
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Book Free Audit
+                            </h3>
+                            <p class="text-slate-400">
+                                15-min call to understand your business and
+                                goals. No commitment required.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-2xl font-black mx-auto mb-4"
+                            >
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">We Design</h3>
+                            <p class="text-slate-400">
+                                We create your custom design. You review and
+                                approve before we build.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-2xl font-black mx-auto mb-4"
+                            >
+                                3
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Launch & Grow
+                            </h3>
+                            <p class="text-slate-400">
+                                Your site goes live in 7-14 days. Start getting
+                                more customers!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="py-16 md:py-24 bg-slate-900">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            Got Questions? We've Got Answers
+                        </h2>
+                        <p class="text-slate-400">
+                            Here's what other business owners asked us
+                        </p>
+                    </div>
+                    <div class="faq-chat">
+                        <!-- Q&A 1 -->
+                        <div class="chat-pair">
+                            <div class="chat-question">
+                                How long does it take to build my website?
+                            </div>
+                            <div class="chat-answer">
+                                <div class="chat-avatar">ST</div>
+                                <div class="chat-bubble">
+                                    Most websites are completed within
+                                    <strong>7-14 days</strong>, depending on
+                                    your package. We'll give you an exact
+                                    timeline during your free audit call! 🚀
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Q&A 2 -->
+                        <div class="chat-pair">
+                            <div class="chat-question">
+                                Do I own my website?
+                            </div>
+                            <div class="chat-answer">
+                                <div class="chat-avatar">ST</div>
+                                <div class="chat-bubble">
+                                    <strong>Yes, 100%!</strong> You own your
+                                    website, all the content, and your domain.
+                                    We can also help with ongoing hosting and
+                                    maintenance if you need it. ✅
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Q&A 3 -->
+                        <div class="chat-pair">
+                            <div class="chat-question">
+                                What if I need changes after it's done?
+                            </div>
+                            <div class="chat-answer">
+                                <div class="chat-avatar">ST</div>
+                                <div class="chat-bubble">
+                                    We include
+                                    <strong>2 rounds of revisions</strong> in
+                                    every package. After launch, we offer
+                                    affordable maintenance packages or one-off
+                                    updates as needed. Easy! 👍
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Q&A 4 -->
+                        <div class="chat-pair">
+                            <div class="chat-question">
+                                Can you help with logo and branding?
+                            </div>
+                            <div class="chat-answer">
+                                <div class="chat-avatar">ST</div>
+                                <div class="chat-bubble">
+                                    Absolutely! We offer logo design and brand
+                                    identity packages as add-ons. Just ask us
+                                    during your free audit for pricing. 🎨
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="py-16 md:py-24 gradient-cta">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-5xl font-black mb-6">
+                        Ready to Get More Customers?
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-8">
+                        Book your free 15-minute website audit today. No strings
+                        attached.
+                    </p>
+                    <a
+                        href="#contact"
+                        class="inline-block gradient-accent text-white px-10 py-5 rounded-xl font-bold text-xl pulse-glow hover:opacity-90 transition"
+                        >Get Your FREE Audit Now →</a
+                    >
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="py-16 md:py-24 bg-slate-900">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                                Let's Talk About Your Website
+                            </h2>
+                            <p class="text-slate-400 mb-8">
+                                Fill out the form and we'll get back to you
+                                within 24 hours. Or call us directly for faster
+                                response.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center mr-4"
+                                    >
+                                        <svg
+                                            class="w-6 h-6"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">
+                                            Call us
+                                        </div>
+                                        <a
+                                            href="tel:0430063080"
+                                            class="text-xl font-bold text-white hover:text-amber-400 transition"
+                                            >0430 063 080</a
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center mr-4"
+                                    >
+                                        <svg
+                                            class="w-6 h-6"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-slate-400">
+                                            Email us
+                                        </div>
+                                        <a
+                                            href="mailto:hello@skytechlabs.com.au"
+                                            class="text-lg font-semibold text-white hover:text-amber-400 transition"
+                                            >hello@skytechlabs.com.au</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800 p-8 rounded-2xl border border-slate-700"
+                        >
+                            <form action="#" method="POST" class="space-y-6">
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2"
+                                        >Your Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        required
+                                        class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                        placeholder="John Smith"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2"
+                                        >Email</label
+                                    >
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        required
+                                        class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                        placeholder="john@example.com"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2"
+                                        >Phone</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                        placeholder="0400 000 000"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2"
+                                        >Budget Range</label
+                                    >
+                                    <select
+                                        name="budget"
+                                        class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                    >
+                                        <option value="">
+                                            Select your budget
+                                        </option>
+                                        <option value="starter">
+                                            Starter (~$995)
+                                        </option>
+                                        <option value="professional">
+                                            Professional (~$1,500)
+                                        </option>
+                                        <option value="premium">
+                                            Premium (~$2,500)
+                                        </option>
+                                        <option value="custom">
+                                            Custom / Not Sure
+                                        </option>
+                                    </select>
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="w-full gradient-accent text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition"
+                                >
+                                    Book My Free Audit →
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-slate-950 border-t border-slate-800 py-8">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <div class="flex justify-center items-center space-x-3 mb-4">
+                    <img
+                        src="logo.jpg"
+                        alt="SkyTech Labs"
+                        class="h-8 w-auto rounded"
+                    />
+                    <span class="font-bold">SkyTech Labs</span>
+                </div>
+                <p class="text-slate-500 text-sm">
+                    © 2025 SkyTech Labs. All rights reserved. Sydney, Australia.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile menu
+            document
+                .getElementById('menu-btn')
+                .addEventListener('click', () => {
+                    document
+                        .getElementById('mobile-menu')
+                        .classList.toggle('hidden');
+                });
+
+            // Accordion - removed (now using chat bubbles)
+
+            // Fade in on scroll
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting)
+                            entry.target.classList.add('visible');
+                    });
+                },
+                { threshold: 0.1 }
+            );
+            document
+                .querySelectorAll('.fade-in')
+                .forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>
