@@ -12,7 +12,7 @@
     var header = document.querySelector('[data-header]');
     if (header) {
       var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
-      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+      requestAnimationFrame(onScroll); window.addEventListener('scroll', onScroll, { passive: true });
     }
 
     /* Mobile navigation */
@@ -43,7 +43,7 @@
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
       }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-      reveals.forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 60 + 'ms'; io.observe(el); });
+      reveals.forEach(function (el) { io.observe(el); });
     } else {
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
