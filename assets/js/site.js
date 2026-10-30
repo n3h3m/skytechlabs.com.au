@@ -36,7 +36,8 @@
     var chips = Array.prototype.slice.call(form.querySelectorAll('[data-chip]'));
     function syncChips() {
       var on = chips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; }).map(function (c) { return c.getAttribute('data-chip'); });
-      details.value = on.length ? 'Time-eaters: ' + on.join(', ') : '';
+      var box = form.querySelector('[data-chips]'), pre = (box && box.getAttribute('data-prefix')) || 'Time-eaters';
+      details.value = on.length ? pre + ': ' + on.join(', ') : '';
     }
     chips.forEach(function (c) {
       c.addEventListener('click', function () { c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); syncChips(); });
@@ -100,7 +101,7 @@
         if (r.status === 200 && r.body && r.body.ok) {
           form.classList.add('form-done');
           showStatus('ok', '<strong>Thanks, ' + esc(data.name.trim().split(' ')[0]) + '. Got it.</strong>' +
-            '<p>' + (data.intent === 'email' ? 'Nehem will reply by email.' : 'Nehem will ring you to lock in your free 20-minute admin check.') +
+            '<p>' + (data.intent === 'email' ? 'Nehem will reply by email.' : 'Nehem will ring you to lock in your free 20-minute call.') +
             ' Your reference is <strong>' + esc(r.body.ref) + '</strong>.</p>');
           status.focus();
         } else if (r.status === 422 && r.body && r.body.fields) {
