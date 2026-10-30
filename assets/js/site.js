@@ -14,7 +14,7 @@
       e.preventDefault();
       t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
       history.replaceState(null, '', '#book');
-      setTimeout(function () { var f = t.querySelector('[data-chips] .chip, input, textarea'); (f || t).focus({ preventScroll: true }); }, 450);
+      setTimeout(function () { t.focus({ preventScroll: true }); }, 450);
     });
     var form = document.querySelector('[data-enquiry]');
     if (form) enquiry(form);
@@ -22,6 +22,7 @@
     if (list) checklist(list);
   });
 
+  function track(n, p) { if (window.skyTrack) window.skyTrack(n, p); }
   var EMAIL_RE = /^[^\s@<>()[\]\\,;:"]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
   var PHONE_RE = /^\+?[0-9 ()-]{8,20}$/;
 
@@ -100,6 +101,7 @@
       }).then(function (r) {
         if (r.status === 200 && r.body && r.body.ok) {
           form.classList.add('form-done');
+          track('form_submit', { form_id: 'enquiry', intent: data.intent || '' });
           showStatus('ok', '<strong>Thanks, ' + esc(data.name.trim().split(' ')[0]) + '. Got it.</strong>' +
             '<p>' + (data.intent === 'email' ? 'Nehem will reply by email.' : 'Nehem will ring you to lock in your free 20-minute call.') +
             ' Your reference is <strong>' + esc(r.body.ref) + '</strong>.</p>');
@@ -134,12 +136,33 @@
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 })();
 
-// Load the Cal.com calendar only when it is about to scroll into view (and never when hidden on phones)
-(function(){var f=document.querySelectorAll('iframe[data-src]');if(!f.length)return;
-function go(el){if(!el.src)el.src=el.getAttribute('data-src');}
-if(!('IntersectionObserver' in window)){f.forEach(go);return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go(e.target);io.unobserve(e.target);}});},{rootMargin:'300px 0px'});
-f.forEach(function(el){io.observe(el);});})();
+// Inline Cal.com calendar: the frame starts loading the moment the page itself has finished loading (no waiting
+// for a scroll or tap), so it never competes with the first paint. 'credentialless' keeps Cal's cookies ephemeral. This speaks Cal's embed
+// postMessage protocol (as embed.js does) to apply the site colours, size the frame to its content
+// (no inner scrolling) and keep the top of the calendar in view when it moves to the next step.
+(function(){var f=document.querySelector('iframe[data-cal]');if(!f)return;
+var O='https://app.cal.com',ns=f.getAttribute('data-cal'),box=f.parentNode,ready=false;
+var UI={theme:'light',layout:'month_view',hideEventTypeDetails:false,styles:{branding:{brandColor:'#2F6BB9'}},
+ cssVarsPerTheme:{light:{'cal-brand':'#2F6BB9','cal-brand-emphasis':'#1F4F8F','cal-brand-text':'#ffffff',
+  'cal-bg':'#fffdf8','cal-bg-muted':'#f5efe4','cal-bg-subtle':'#f5efe4','cal-bg-emphasis':'#e8dfcf',
+  'cal-border':'#121110','cal-border-subtle':'#ddd3c2','cal-border-booker':'#121110',
+  'cal-text':'#121110','cal-text-emphasis':'#121110','cal-text-subtle':'#4a4540','cal-text-muted':'#6b645c'}}};
+function send(m,a){if(f.contentWindow)f.contentWindow.postMessage({originator:'CAL',method:m,arg:a},O);}
+function show(){if(ready)return;ready=true;box.classList.add('cal-ready');}
+function go(){if(f.src)return;f.addEventListener('load',function(){if(window.skyTrack)window.skyTrack('calendar_view',{calendar:'booking'});},{once:true});f.src=f.getAttribute('data-src');}
+if(document.readyState==='complete')go();else window.addEventListener('load',go);
+// if Cal.com never answers, keep the drawn placeholder and point to the booking page instead of showing an error frame
+setTimeout(function(){if(ready)return;var s=box.querySelector('.cal-skel span'),a=document.querySelector('.cal-alt a');
+ if(s&&a){s.parentNode.removeAttribute('aria-hidden');s.innerHTML='The calendar is slow to load. <a href="'+a.href+'" target="_blank" rel="noopener">Open the booking page</a>.';}},15000);
+window.addEventListener('message',function(e){
+ if(e.origin!==O||!e.data||typeof e.data.fullType!=='string')return;
+ var p=e.data.fullType.split(':');if(p[0]!=='CAL'||p[1]!==ns)return;var t=p[2],d=e.data.data||{};
+ if(t==='__iframeReady'){send('parentKnowsIframeReady');send('ui',UI);show();}
+ else if(t==='__dimensionChanged'){if(d.iframeHeight>100)f.style.height=Math.ceil(d.iframeHeight)+'px';}
+ else if(t==='__routeChanged'){var r=box.getBoundingClientRect();if(r.top<0&&r.bottom>innerHeight*0.3)window.scrollBy({top:r.top-16,behavior:'smooth'});}
+ else if(t==='__scrollByDistance'&&d.distance){window.scrollBy({top:d.distance,behavior:'smooth'});}
+ else if((t==='bookingSuccessful'||t==='bookingSuccessfulV2')&&window.skyTrack){window.skyTrack('booking_complete',{calendar:'booking'});}
+});})();
 
 // Mobile sticky bar: appears after one swipe (30% of the screen height scrolled),
 // tucked away while the booking section or the final CTA is on screen so it never overlaps them.
@@ -152,3 +175,38 @@ function update(){ticking=false;
   if(want!==shown){shown=want;bar.classList.toggle('is-shown',want);}}
 function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
 window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req,{passive:true});req();})();
+
+// Analytics: GA4 + Microsoft Clarity. Only on the live site (the build adds data-ga / data-clarity to <html>),
+// never with Do Not Track / Global Privacy Control, and only after the page is idle or on first interaction.
+(function(){var w=window,d=document,h=d.documentElement,n=navigator;
+var ga=h.getAttribute('data-ga'),cl=h.getAttribute('data-clarity');
+var ptype=h.getAttribute('data-ptype')||'page',region=h.getAttribute('data-region')||'',trade=h.getAttribute('data-trade')||'';
+var optout=n.doNotTrack==='1'||w.doNotTrack==='1'||n.msDoNotTrack==='1'||n.globalPrivacyControl===true;
+var on=!!(ga||cl)&&!optout;
+w.skyTrack=function(name,p){if(!on)return;p=p||{};
+  if(ga)w.gtag('event',name,p);
+  if(cl){w.clarity('event',name);}};
+if(!on)return;
+if(ga){w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};
+  w.gtag('js',new Date());w.gtag('config',ga,{page_type:ptype,region:region||undefined,trade:trade||undefined});}
+if(cl){w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments);};
+  w.clarity('set','page_type',ptype);if(region)w.clarity('set','region',region);if(trade)w.clarity('set','trade',trade);}
+var loaded=false,EV=['scroll','pointerdown','keydown','touchstart','mousemove'];
+function add(src){var s=d.createElement('script');s.async=true;s.src=src;d.head.appendChild(s);}
+function load(){if(loaded)return;loaded=true;EV.forEach(function(e){w.removeEventListener(e,load,{passive:true});});
+  if(ga)add('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(ga));
+  if(cl)add('https://www.clarity.ms/tag/'+encodeURIComponent(cl));}
+EV.forEach(function(e){w.addEventListener(e,load,{passive:true,once:true});});
+function idle(){setTimeout(function(){(w.requestIdleCallback||function(f){setTimeout(f,1);})(load,{timeout:3000});},4000);}
+if(d.readyState==='complete')idle();else w.addEventListener('load',idle);
+// key events
+d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+  var href=a.getAttribute('href')||'',txt=(a.textContent||'').replace(/\s+/g,' ').trim().slice(0,80);
+  var p={link_text:txt,link_url:href,page_type:ptype};
+  if(href.indexOf('tel:')===0)w.skyTrack('phone_click',p);
+  else if(href.indexOf('mailto:')===0)w.skyTrack('email_click',p);
+  else if(/cal\.com\//.test(href)||href==='#book'||/\/#book$/.test(href)||/^(Book a free call|Pick a time)/i.test(txt))w.skyTrack('book_call_click',p);},true);
+var f=d.querySelector('[data-enquiry]');
+if(f){var started=false;var st=function(){if(started)return;started=true;w.skyTrack('form_start',{form_id:'enquiry',page_type:ptype});};
+  f.addEventListener('focusin',st);f.addEventListener('input',st);}
+})();
