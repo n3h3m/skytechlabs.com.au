@@ -3,8 +3,8 @@
   "short_name": "SkyTech Labs",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#f4efe4",
-  "theme_color": "#f4efe4",
+  "background_color": "#f5efe4",
+  "theme_color": "#f5efe4",
   "icons": [
     {
       "src": "/assets/img/icon-192.png",
