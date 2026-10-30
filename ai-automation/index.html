@@ -32,12 +32,12 @@
 <link rel="preload" href="/assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v=d84fa99520">
-<script src="/assets/js/site.js?v=a6c0e74508" defer></script>
+<link rel="stylesheet" href="/assets/css/sketch.css?v=8f56aeb189"><script src="/assets/js/site.js?v=a6c0e74508" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "AI automation for Australian small businesses", "serviceType": "Business process automation", "description": "Missed calls answered, quotes followed up, bookings, reminders and invoices handled with AI and automation, built around the tools you already use.", "provider": {"@type": "ProfessionalService", "@id": "https://skytechlabs.com.au/#business", "name": "SkyTech Labs", "url": "https://skytechlabs.com.au/"}, "areaServed": {"@type": "Country", "name": "Australia"}, "url": "https://skytechlabs.com.au/ai-automation/", "offers": {"@type": "Offer", "name": "Free 20-minute call", "price": "0", "priceCurrency": "AUD"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://skytechlabs.com.au/"}, {"@type": "ListItem", "position": 2, "name": "AI automation", "item": "https://skytechlabs.com.au/ai-automation/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The admin check call is free. If there's something worth building, you get a clear written scope and price before any work starts, and you decide. No surprises."}}, {"@type": "Question", "name": "What actually happens on the free call?", "acceptedAnswer": {"@type": "Answer", "text": "You pick a time that suits you and Nehem phones you. It takes about 20 minutes: you talk through where the time goes (calls, quotes, bookings, invoices, paperwork) and you come away knowing which two or three jobs are worth automating first, whether or not you go ahead. No sales script."}}, {"@type": "Question", "name": "I'm not a tech person. Is that a problem?", "acceptedAnswer": {"@type": "Answer", "text": "Not at all. You explain how your business runs in plain English, and the tech side is handled for you. You'll never be asked to set anything up yourself."}}, {"@type": "Question", "name": "Will it sound like a robot to my customers?", "acceptedAnswer": {"@type": "Answer", "text": "No. Messages are written in your voice and you approve them before anything goes live. Anything unusual or sensitive is handed to a real person: you."}}, {"@type": "Question", "name": "Do I need new software?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. The work starts with the tools you already use, and something new is only suggested if it's clearly worth it."}}, {"@type": "Question", "name": "Will AI replace my staff?", "acceptedAnswer": {"@type": "Answer", "text": "That's not the aim. The aim is to take repetitive admin off your team so they can spend more time on customers and the work that matters. You decide what gets automated."}}, {"@type": "Question", "name": "What if something breaks?", "acceptedAnswer": {"@type": "Answer", "text": "Every automation is built with checks and alerts, so problems get noticed quickly, and you have a direct number for the person who built it."}}, {"@type": "Question", "name": "Is my customers' data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Only the access a job needs is requested, nothing goes live without your OK, and personal information is handled in line with the Australian Privacy Principles. See the Privacy Policy."}}]}</script>
 </head>
-<body class="page-home page-ai theme-blue">
+<body class="page-home page-ai theme-blue sk">
 <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs>
 <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M13 6l-3 5h4l-3 5"/></symbol>
 <symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M9 12h6M9 16h6M9 8h2"/></symbol>
@@ -88,14 +88,12 @@
 <main id="main" tabindex="-1">
 <!-- 1. PROMISE + WHO IT'S FOR -->
 <section class="hero band-paper" aria-labelledby="hero-title">
-  <div class="wrap">
-    <p class="kicker"><span class="kdot" aria-hidden="true"></span>AI automation for Aussie small businesses</p>
-    <h1 id="hero-title" class="display hero-title">Less admin.<br><span class="mark">More business.</span></h1>
-  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-lead">Missed calls answered, quotes followed up, bookings, reminders and invoices handled, so you can get back to the work that pays.</p>
-      <p class="hero-who"><strong>For Australian small businesses</strong> (trades, clinics, local services and small teams) buried in calls, quotes and invoices.</p>
+      <p class="kicker"><span class="kdot" aria-hidden="true"></span>AI automation for Aussie small businesses</p>
+      <h1 id="hero-title" class="display hero-title">Less admin.<br><span class="mark">More business.</span></h1>
+      <p class="hero-lead">Missed calls answered, quotes followed up, bookings and invoices handled. You get back to the work that pays.</p>
+      <p class="hero-who"><strong>For Australian small businesses:</strong> trades, clinics, local services and small teams.</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
         <a class="btn btn-lg btn-ghost" href="tel:+61430063080">Call 0430 063 080</a>
@@ -104,16 +102,21 @@
         <li>Sydney-based</li><li>18+ years building software</li><li>You deal directly with Nehem</li><li>No obligation</li>
       </ul>
     </div>
+    <figure class="hero-art"><img src="/assets/art/hero.svg" width="520" height="420" alt="Sketch: a phone at the centre, sending replies, filling a calendar, ticking off an invoice and collecting five-star reviews" decoding="async"></figure>
+  </div>
+  <div class="wrap">
     <aside class="offer-card" aria-labelledby="offer-title">
       <p class="offer-tag">Free</p>
       <h2 id="offer-title" class="offer-title">The 20&#8209;minute admin check</h2>
       <ol class="offer-list">
-        <li><strong>Pick a time</strong> that suits you and Nehem calls you.</li>
-        <li><strong>A 20-minute chat</strong> about where your hours go: calls, quotes, bookings, invoices.</li>
-        <li><strong>You know what to fix first</strong>: the jobs worth automating, in plain English, whether you go ahead or not.</li>
+        <li><strong>Pick a time</strong> that suits you.</li>
+        <li><strong>Nehem calls you</strong> for a 20-minute chat about where your hours go.</li>
+        <li><strong>You know what to fix first</strong>, in plain English.</li>
       </ol>
-      <p class="offer-note">No obligation. If automation isn't worth it for you, you'll hear that too.</p>
-      <a class="btn btn-dark btn-block" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
+      <div class="offer-end">
+        <p class="offer-note">No obligation. If it's not worth it, you'll hear that too.</p>
+        <a class="btn btn-dark" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
+      </div>
     </aside>
   </div>
 </section>
@@ -130,10 +133,14 @@
     </figure>
     <div class="meet-copy">
       <p class="kicker"><span class="kdot" aria-hidden="true"></span>Who you'll be talking to</p>
-      <h2 id="meet-title" class="h2">A real person, not a sales team.</h2>
+      <h2 id="meet-title" class="h2">A real person, <span class="ul">not a sales team.</span></h2>
       <p class="big">SkyTech Labs is run by Nehem, a Sydney software engineer with 18+ years building software.</p>
-      <p>You deal with him from the first call to the finished setup, so the person who listens to how your business runs is the person who builds it. No account managers, no hand-offs, no jargon.</p>
-      <p>Plain English start to finish, built around the tools you already use, and nothing goes live without your OK.</p>
+      <ul class="doodle-list">
+        <li>Same person from the first call to the finished setup.</li>
+        <li>Plain English. No account managers, no hand-offs, no jargon.</li>
+        <li>Built around the tools you already use.</li>
+        <li>Nothing goes live without your OK.</li>
+      </ul>
       <div class="cta-row">
         <a class="btn" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
         <a class="btn btn-ghost" href="mailto:nehem@skytechlabs.com.au">nehem@skytechlabs.com.au</a>
@@ -221,17 +228,20 @@
 
 
 <!-- 4. PAIN -->
-<section class="pain band-ink" aria-labelledby="pain-title">
+<section class="pain band-white" aria-labelledby="pain-title">
   <div class="wrap">
-    <h2 id="pain-title" class="h2">Sound familiar?</h2>
-    <ul class="pain-list">
-      <li><span>On the tools all day.</span> Phone rings, nobody answers, the job goes to someone else.</li>
-      <li><span>Quotes go out.</span> Nobody follows up. They go cold.</li>
-      <li><span>Sunday night.</span> Invoices, receipts and data entry instead of your family.</li>
-      <li><span>Same questions.</span> Every day, from every new customer.</li>
-      <li><span>Five apps.</span> None of them talk to each other, so you copy and paste between them.</li>
+    <h2 id="pain-title" class="h2">Sound <span class="ul">familiar?</span></h2>
+    <ul class="pain-cards" role="list">
+      <li><img src="/assets/art/missed-call.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><p><strong>On the tools all day.</strong> Phone rings, nobody answers, the job goes elsewhere.</p></li>
+      <li><img src="/assets/art/quote-cold.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><p><strong>Quotes go out.</strong> Nobody follows up. They go cold.</p></li>
+      <li><img src="/assets/art/sunday-night.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><p><strong>Sunday night.</strong> Invoices and data entry instead of family.</p></li>
+      <li><img src="/assets/art/chat-bot.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><p><strong>Same questions.</strong> Every day, from every new customer.</p></li>
+      <li><img src="/assets/art/apps-tangle.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><p><strong>Five apps.</strong> None of them talk, so you copy and paste.</p></li>
     </ul>
-    <p class="pain-out">None of that needs you. Most of it can be handed to automation, while you stay in charge of the decisions.</p>
+    <div class="pain-out-row">
+      <img class="pain-arrow" src="/assets/art/arrow-down.svg" width="70" height="110" alt="" loading="lazy" decoding="async">
+      <p class="pain-out">None of that needs you. Hand it to automation and stay in charge of the decisions.</p>
+    </div>
   </div>
 </section>
 
@@ -239,8 +249,15 @@
 <section class="plate band-paper" aria-labelledby="plate-title">
   <div class="wrap">
     <p class="kicker"><span class="kdot" aria-hidden="true"></span>What you get</p>
-    <h2 id="plate-title" class="h2">The boring bits, done for you.</h2>
-    <div class="plate-grid"><article class="block"><h3>Never miss a call</h3><p>Missed callers get a text straight back, their details are captured, and you get a short summary instead of a voicemail.</p></article><article class="block"><h3>Quotes sent faster, and followed up</h3><p>Draft quotes from your notes, then friendly follow-ups until the customer says yes or no.</p></article><article class="block"><h3>Paperwork that does itself</h3><p>Bills, receipts, job notes and forms read and entered for you, ready to check.</p></article><article class="block"><h3>Bookings and reminders handled</h3><p>Confirmations, reminders and rebooking messages go out on their own, so fewer people no-show.</p></article><article class="block"><h3>Invoices chased politely</h3><p>Overdue reminders go out on a schedule you set, so you&#x27;re not the one making awkward calls.</p></article><article class="block"><h3>Reviews asked for</h3><p>Happy customers get a thank-you with your review link at the right moment.</p></article></div>
+    <h2 id="plate-title" class="h2">The boring bits, <span class="ul">done for you.</span></h2>
+    <ul class="art-grid" role="list">
+      <li class="art-card"><img src="/assets/art/headset.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Never miss a call</h3><p>Missed callers get a text straight back. You get a summary, not a voicemail.</p></li>
+      <li class="art-card"><img src="/assets/art/quote-chase.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Quotes sent faster, and followed up</h3><p>Drafted from your notes, then chased until they say yes or no.</p></li>
+      <li class="art-card"><img src="/assets/art/paperwork.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Paperwork that does itself</h3><p>Bills, receipts and job notes read and entered, ready to check.</p></li>
+      <li class="art-card"><img src="/assets/art/calendar.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Bookings and reminders handled</h3><p>Confirmations and reminders go out on their own. Fewer no-shows.</p></li>
+      <li class="art-card"><img src="/assets/art/invoice.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Invoices chased politely</h3><p>Overdue reminders on a schedule you set. No awkward calls.</p></li>
+      <li class="art-card"><img src="/assets/art/reviews.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><h3>Reviews asked for</h3><p>Happy customers get your review link at the right moment.</p></li>
+    </ul>
     <p class="plate-note">We start with the software you already have. Nothing goes live without your OK.</p>
     <div class="cta-row"><a class="btn btn-lg" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a></div>
   </div>
@@ -249,9 +266,17 @@
 <!-- 6. ARE YOU A...? (trade picker) -->
 <section class="trades band-white" id="who-we-help" aria-labelledby="trades-title">
   <div class="wrap">
-    <p class="kicker"><span class="kdot" aria-hidden="true"></span>Who we help</p>
-    <h2 id="trades-title" class="h2">Are you a…?</h2>
-    <p class="big trades-lead">Pick your trade for a free, specific list of what you're probably missing out on, plus a one-minute checklist.</p>
+    <div class="trades-head">
+      <div>
+        <p class="kicker"><span class="kdot" aria-hidden="true"></span>Who we help</p>
+        <h2 id="trades-title" class="h2">Are you a…?</h2>
+        <p class="big trades-lead">Pick your trade: what you're probably missing, plus a one-minute checklist. Free.</p>
+      </div>
+      <div class="trades-art" aria-hidden="true">
+        <img src="/assets/art/ute.svg" width="280" height="160" alt="" loading="lazy" decoding="async">
+        <img src="/assets/art/toolbox.svg" width="240" height="180" alt="" loading="lazy" decoding="async">
+      </div>
+    </div>
     <ul class="tgrid" role="list"><li class="tcard"><a href="/who-we-help/hvac/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-fan"/></svg></span><span class="tcard-t">HVAC and air conditioning</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>After-hours and on-the-tools breakdown calls</li><li>Install quotes that go cold</li><li>Service and maintenance reminders</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/plumber/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-drop"/></svg></span><span class="tcard-t">Plumbing</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Emergency calls you can&#x27;t answer</li><li>The same questions, every day</li><li>Quotes for bigger jobs that go quiet</li></ul><span class="tcard-go">See all 6 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/electrician/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg></span><span class="tcard-t">Electrical</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Calls you miss on the job</li><li>Quotes that take too long</li><li>Smoke alarm and safety-switch reminders</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/dentist/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tooth"/></svg></span><span class="tcard-t">Dental</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Recall and check-up reminders</li><li>No-shows and empty chairs</li><li>Treatment plans that go home and stay there</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/personal-trainer/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-dumbbell"/></svg></span><span class="tcard-t">Personal training and gyms</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Enquiries answered while they&#x27;re keen</li><li>Trial-to-member follow-up</li><li>Missed-session rebooking</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/physio/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><span class="tcard-t">Physio and allied health</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Patients who don&#x27;t rebook</li><li>No-shows and late cancellations</li><li>Referral letters and reports</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/cleaner/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><span class="tcard-t">Cleaning</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Fast replies to quote requests</li><li>Booking confirmations and access details</li><li>Roster changes and cover</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/property-manager/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-home"/></svg></span><span class="tcard-t">Real estate and property management</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Maintenance requests with the details you need</li><li>Inspection and entry notices</li><li>Rent arrears reminders</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/accountant/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-calc"/></svg></span><span class="tcard-t">Accounting and bookkeeping</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Chasing client documents</li><li>BAS, tax and lodgement reminders</li><li>New-client onboarding</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li><li class="tcard"><a href="/who-we-help/salon/"><span class="tcard-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span><span class="tcard-t">Hair and beauty salons</span><span class="tcard-s">What you could be missing:</span><ul class="tcard-l"><li>Messages answered while you work</li><li>Rebooking reminders</li><li>No-shows and late cancellations</li></ul><span class="tcard-go">See all 5 and the checklist <span aria-hidden="true">→</span></span></a></li></ul>
     <p class="trades-all"><a href="/who-we-help/">Something else? See all industries <span aria-hidden="true">→</span></a></p>
   </div>
@@ -262,9 +287,9 @@
   <div class="wrap">
     <h2 id="how-title" class="h2">How it works. Three steps.</h2>
     <ol class="steps-grid">
-      <li class="step"><span class="step-num" aria-hidden="true">1</span><h3>Pick a time</h3><p>Choose a 20-minute slot that suits you. Just your name, number and business name.</p></li>
-      <li class="step"><span class="step-num" aria-hidden="true">2</span><h3>Nehem calls you</h3><p>A relaxed chat about how your week actually runs: calls, quotes, bookings, invoices, paperwork. No tech talk needed.</p></li>
-      <li class="step"><span class="step-num" aria-hidden="true">3</span><h3>You know what to fix first</h3><p>The two or three jobs worth automating first and what they'd involve. If it's not worth it for you, you'll hear that too.</p></li>
+      <li class="step"><img class="step-art" src="/assets/art/pick-time.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><span class="step-num" aria-hidden="true">1</span><h3>Pick a time</h3><p>Choose a 20-minute slot. Just your name, number and business name.</p></li>
+      <li class="step"><img class="step-art" src="/assets/art/phone-chat.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><span class="step-num" aria-hidden="true">2</span><h3>Nehem calls you</h3><p>A relaxed chat about your week: calls, quotes, bookings, invoices. No tech talk.</p></li>
+      <li class="step"><img class="step-art" src="/assets/art/bulb-list.svg" width="240" height="180" alt="" loading="lazy" decoding="async"><span class="step-num" aria-hidden="true">3</span><h3>You know what to fix first</h3><p>The two or three jobs worth automating first. If it's not worth it, you'll hear that too.</p></li>
     </ol>
     <div class="cta-row"><a class="btn btn-dark btn-lg" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a></div>
   </div>
@@ -275,21 +300,22 @@
 <section class="proof band-white" aria-labelledby="proof-title">
   <div class="wrap">
     <p class="kicker"><span class="kdot" aria-hidden="true"></span>Straight up</p>
-    <h2 id="proof-title" class="h2">No fake reviews. Just the facts.</h2>
+    <h2 id="proof-title" class="h2">No fake reviews. <span class="ul">Just the facts.</span></h2>
     <div class="facts">
-      <div class="fact"><strong>Sydney</strong><span>Based here. Working with Australian small businesses.</span></div>
-      <div class="fact"><strong>18+ yrs</strong><span>Building software for a living.</span></div>
-      <div class="fact"><strong>1 person</strong><span>You deal with Nehem, start to finish.</span></div>
-      <div class="fact"><strong>Free</strong><span>The 20-minute admin check. No obligation.</span></div>
+      <div class="fact"><img src="/assets/art/opera-house.svg" width="240" height="160" alt="" loading="lazy" decoding="async"><strong>Sydney</strong><span>Based here. Working with Australian small businesses.</span></div>
+      <div class="fact"><img src="/assets/art/laptop.svg" width="240" height="160" alt="" loading="lazy" decoding="async"><strong>18+ yrs</strong><span>Building software for a living.</span></div>
+      <div class="fact"><img src="/assets/art/one-person.svg" width="220" height="170" alt="" loading="lazy" decoding="async"><strong>1 person</strong><span>You deal with Nehem, start to finish.</span></div>
+      <div class="fact"><img src="/assets/art/gift.svg" width="220" height="170" alt="" loading="lazy" decoding="async"><strong>Free</strong><span>The 20-minute admin check. No obligation.</span></div>
     </div>
-    <p class="proof-note">SkyTech Labs is a new business, so you won't find a wall of testimonials here, and none will be made up. What you will get is a straight answer: if automation isn't worth it for your business, you'll hear that.</p>
+    <p class="proof-note">SkyTech Labs is new, so there's no wall of testimonials, and none will be made up. You get a straight answer, even if it's "not worth automating".</p>
   </div>
 </section>
 
 <!-- 9. FAQ -->
 <section class="faq band-paper" id="faq" aria-labelledby="faq-title" tabindex="-1">
   <div class="wrap faq-grid">
-    <div>
+    <div class="faq-intro">
+      <img class="faq-art" src="/assets/art/question.svg" width="220" height="190" alt="" loading="lazy" decoding="async">
       <h2 id="faq-title" class="h2">Fair questions.</h2>
       <p class="big">Something else on your mind? <a href="tel:+61430063080">Call 0430 063 080</a> or <a href="mailto:nehem@skytechlabs.com.au">send an email</a>.</p>
     </div>
@@ -300,13 +326,16 @@
 <!-- 10. FINAL CALL TO ACTION -->
 <section class="final band-ink" aria-labelledby="final-title">
   <div class="wrap final-in">
-    <h2 id="final-title" class="display display-sm">Get your time back.<br><span class="mark">Start with a free call.</span></h2>
-    <p class="big">Twenty minutes on the phone. You'll know what's worth automating, whether or not you go ahead.</p>
-    <div class="cta-row">
-      <a class="btn btn-lg" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
-      <a class="btn btn-lg btn-ghost-light" href="tel:+61430063080">Call 0430 063 080</a>
+    <div class="final-copy">
+      <h2 id="final-title" class="display display-sm">Get your time back.<br><span class="mark">Start with a free call.</span></h2>
+      <p class="big">Twenty minutes on the phone. You'll know what's worth automating, whether or not you go ahead.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://cal.com/nehem-skytech/admin-check" target="_blank" rel="noopener" aria-describedby="newtab-note">Book a free call <span aria-hidden="true">→</span></a>
+        <a class="btn btn-lg btn-ghost-light" href="tel:+61430063080">Call 0430 063 080</a>
+      </div>
+      <p class="signoff">No obligation. No sales script. <span>Nehem</span></p>
     </div>
-    <p class="signoff">No obligation. No sales script. <span>Nehem</span></p>
+    <img class="final-art" src="/assets/art/clock-back-light.svg" width="240" height="200" alt="" loading="lazy" decoding="async">
   </div>
 </section>
 
