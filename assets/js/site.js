@@ -5,22 +5,68 @@
   function ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
 
   ready(function () {
-    /* "#book" links: move focus to the booking section after scrolling (keyboard + screen readers) */
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href="#book"]');
-      if (!a) return;
-      var t = document.getElementById('book');
-      if (!t) return;
-      e.preventDefault();
-      t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-      history.replaceState(null, '', '#book');
-      setTimeout(function () { t.focus({ preventScroll: true }); }, 450);
-    });
+    bookScroll();
     var form = document.querySelector('[data-enquiry]');
     if (form) enquiry(form);
     var list = document.querySelector('[data-checklist]');
     if (list) checklist(list);
   });
+
+
+  /* Booking buttons ("#book", "#book-calendar", "/contact/#book" ...) land on the calendar itself
+     ("Pick a day and time" + the card), just under the sticky header. Uses scrollIntoView + CSS
+     scroll-margin-top (header height via --hdr) so mobile dynamic toolbars can't misplace it, then
+     re-checks after smooth scroll, fonts, page load and the widget render (unless the user scrolls). */
+  function bookScroll() {
+    var root = document.documentElement, hdr = document.querySelector('.site-header');
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timers = [], until = 0;
+    function target() { return document.getElementById('book-calendar') || document.getElementById('book'); }
+    function hh() { return hdr ? hdr.offsetHeight : 0; }
+    function setHdr() { root.style.setProperty('--hdr', hh() + 'px'); }
+    function snap() {
+      var t = target();
+      if (!t || Date.now() > until) return;
+      setHdr();
+      var off = t.getBoundingClientRect().top - (hh() + 12);
+      if (Math.abs(off) > 3) { root.style.scrollBehavior = 'auto'; window.scrollBy(0, off); root.style.scrollBehavior = ''; }
+    }
+    function stop() { until = 0; timers.forEach(clearTimeout); timers = []; }
+    function go(smooth) {
+      var t = target();
+      if (!t) return false;
+      stop(); setHdr();
+      until = Date.now() + 5000;
+      if (!smooth || reduce) root.style.scrollBehavior = 'auto';
+      t.scrollIntoView({ behavior: smooth && !reduce ? 'smooth' : 'auto', block: 'start' });
+      root.style.scrollBehavior = '';
+      [250, 700, 1200, 2000, 3500].forEach(function (ms) { timers.push(setTimeout(snap, ms)); });
+      timers.push(setTimeout(function () { t.focus({ preventScroll: true }); }, smooth ? 600 : 0));
+      return true;
+    }
+    function isBook(a) {
+      if (!a || !/^#book(-calendar)?$/.test(a.hash) || a.target === '_blank') return false;
+      return a.origin === location.origin && a.pathname === location.pathname;
+    }
+    setHdr();
+    window.addEventListener('resize', setHdr, { passive: true });
+    ['wheel', 'touchmove', 'keydown'].forEach(function (ev) { window.addEventListener(ev, stop, { passive: true }); });
+    window.addEventListener('scrollend', snap);
+    document.addEventListener('bk:rendered', snap);
+    window.addEventListener('load', snap);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(snap);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="#book"]');
+      if (!isBook(a) || !target()) return;
+      e.preventDefault();
+      history.replaceState(null, '', a.hash);
+      go(true);
+    });
+    if (/^#book(-calendar)?$/.test(location.hash)) {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      go(false);
+    }
+  }
 
   function track(n, p) { if (window.skyTrack) window.skyTrack(n, p); }
   var EMAIL_RE = /^[^\s@<>()[\]\\,;:"]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
@@ -135,34 +181,6 @@
   }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 })();
-
-// Inline Cal.com calendar: the frame starts loading the moment the page itself has finished loading (no waiting
-// for a scroll or tap), so it never competes with the first paint. 'credentialless' keeps Cal's cookies ephemeral. This speaks Cal's embed
-// postMessage protocol (as embed.js does) to apply the site colours, size the frame to its content
-// (no inner scrolling) and keep the top of the calendar in view when it moves to the next step.
-(function(){var f=document.querySelector('iframe[data-cal]');if(!f)return;
-var O='https://app.cal.com',ns=f.getAttribute('data-cal'),box=f.parentNode,ready=false;
-var UI={theme:'light',layout:'month_view',hideEventTypeDetails:false,styles:{branding:{brandColor:'#2F6BB9'}},
- cssVarsPerTheme:{light:{'cal-brand':'#2F6BB9','cal-brand-emphasis':'#1F4F8F','cal-brand-text':'#ffffff',
-  'cal-bg':'#fffdf8','cal-bg-muted':'#f5efe4','cal-bg-subtle':'#f5efe4','cal-bg-emphasis':'#e8dfcf',
-  'cal-border':'#121110','cal-border-subtle':'#ddd3c2','cal-border-booker':'#121110',
-  'cal-text':'#121110','cal-text-emphasis':'#121110','cal-text-subtle':'#4a4540','cal-text-muted':'#6b645c'}}};
-function send(m,a){if(f.contentWindow)f.contentWindow.postMessage({originator:'CAL',method:m,arg:a},O);}
-function show(){if(ready)return;ready=true;box.classList.add('cal-ready');}
-function go(){if(f.src)return;f.addEventListener('load',function(){if(window.skyTrack)window.skyTrack('calendar_view',{calendar:'booking'});},{once:true});f.src=f.getAttribute('data-src');}
-if(document.readyState==='complete')go();else window.addEventListener('load',go);
-// if Cal.com never answers, keep the drawn placeholder and point to the booking page instead of showing an error frame
-setTimeout(function(){if(ready)return;var s=box.querySelector('.cal-skel span'),a=document.querySelector('.cal-alt a');
- if(s&&a){s.parentNode.removeAttribute('aria-hidden');s.innerHTML='The calendar is slow to load. <a href="'+a.href+'" target="_blank" rel="noopener">Open the booking page</a>.';}},15000);
-window.addEventListener('message',function(e){
- if(e.origin!==O||!e.data||typeof e.data.fullType!=='string')return;
- var p=e.data.fullType.split(':');if(p[0]!=='CAL'||p[1]!==ns)return;var t=p[2],d=e.data.data||{};
- if(t==='__iframeReady'){send('parentKnowsIframeReady');send('ui',UI);show();}
- else if(t==='__dimensionChanged'){if(d.iframeHeight>100)f.style.height=Math.ceil(d.iframeHeight)+'px';}
- else if(t==='__routeChanged'){var r=box.getBoundingClientRect();if(r.top<0&&r.bottom>innerHeight*0.3)window.scrollBy({top:r.top-16,behavior:'smooth'});}
- else if(t==='__scrollByDistance'&&d.distance){window.scrollBy({top:d.distance,behavior:'smooth'});}
- else if((t==='bookingSuccessful'||t==='bookingSuccessfulV2')&&window.skyTrack){window.skyTrack('booking_complete',{calendar:'booking'});}
-});})();
 
 // Mobile sticky bar: appears after one swipe (30% of the screen height scrolled),
 // tucked away while the booking section or the final CTA is on screen so it never overlaps them.
