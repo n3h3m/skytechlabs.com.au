@@ -169,7 +169,6 @@
         return res.json().catch(function () { return {}; }).then(function (j) { return { status: res.status, body: j }; });
       }).then(function (r) {
         if (r.status === 200 && r.body && r.body.ok) {
-          relay(form, data, r.body.ref);
           form.classList.add('form-done');
           showStatus('ok', '<strong>Thank you, ' + esc(data.name.split(' ')[0]) + '. We\'ve received your enquiry.</strong>' +
             '<p>' + (data.intent === 'call' ? 'We\'ll be in touch to arrange your free AI strategy call.' : 'We\'ll reply by email.') +
@@ -189,18 +188,5 @@
     });
   }
 
-  /* Optional e-mail copy via Web3Forms (only when an access key is configured at build time). */
-  function relay(form, d, ref) {
-    var key = form.getAttribute('data-notify-key');
-    if (!key) return;
-    try {
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ access_key: key, subject: 'New website enquiry ' + ref + ' — ' + d.company, from_name: 'SkyTech Labs website',
-          replyto: d.email, Reference: ref, Name: d.name, 'Business name': d.company, Email: d.email, Phone: d.phone,
-          'Wants': d.intent === 'call' ? 'Free AI strategy call' : 'Email reply', 'What to automate': d.automate, 'Additional information': d.details || '-' })
-      }).catch(function () {});
-    } catch (e) { /* enquiry already stored */ }
-  }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 })();
