@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="t">
+<title id="t">Illustration: a tradie in hi-vis checking his phone, leaning on a white ute</title>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6fa"/><stop offset="1" stop-color="#f7efe0"/></linearGradient>
+<linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e3e8ee"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fc4e6"/><stop offset="1" stop-color="#5b86b3"/></linearGradient>
+</defs>
+<rect width="640" height="480" fill="url(#sky)"/>
+<!-- house roof and wall in the background -->
+<path d="M430 150 L540 96 L650 150 Z" fill="#c8775a"/>
+<rect x="446" y="148" width="194" height="140" fill="#efe3cf"/>
+<rect x="470" y="176" width="40" height="34" fill="#b9d3ea"/>
+<!-- trees -->
+<g fill="#6f9f6a"><circle cx="40" cy="190" r="70"/><circle cx="110" cy="150" r="64"/><circle cx="170" cy="200" r="56"/></g>
+<g fill="#5e8c5a"><circle cx="70" cy="230" r="54"/><circle cx="150" cy="240" r="44"/></g>
+<rect x="96" y="230" width="14" height="90" fill="#7a5c45"/>
+<g fill="#79a873"><circle cx="610" cy="210" r="50"/><circle cx="580" cy="250" r="40"/></g>
+<!-- ground -->
+<rect x="0" y="420" width="640" height="60" fill="#e8dcc5"/>
+<rect x="0" y="414" width="640" height="10" fill="#d9cbb0"/>
+<ellipse cx="312" cy="440" rx="270" ry="14" fill="#000" opacity=".12"/>
+<!-- ute -->
+<g>
+<path d="M58 372 L58 318 Q60 300 82 296 L128 292 L176 214 Q182 204 196 204 L292 204 Q306 204 306 218 L306 288 L586 288 Q596 288 596 298 L596 372 Q596 382 586 382 L68 382 Q58 382 58 372Z" fill="url(#body)" stroke="#9aa7b5" stroke-width="2"/>
+<path d="M140 290 L184 222 Q187 217 194 217 L240 217 L240 290Z" fill="url(#glass)"/>
+<path d="M250 217 L286 217 Q292 217 292 223 L292 290 L250 290Z" fill="url(#glass)"/>
+<path d="M306 288 L306 380" stroke="#9aa7b5" stroke-width="2"/>
+<path d="M246 300 L246 376" stroke="#c3ccd6" stroke-width="2"/>
+<rect x="222" y="312" width="16" height="5" rx="2" fill="#8a97a6"/>
+<!-- tray rack -->
+<g stroke="#8a97a6" stroke-width="6" stroke-linecap="round" fill="none"><path d="M316 288 L316 212 L330 206 L330 288"/><path d="M316 236 L330 232"/><path d="M316 260 L330 257"/></g>
+<rect x="310" y="300" width="286" height="10" fill="#c3ccd6"/>
+<rect x="56" y="350" width="40" height="18" rx="4" fill="#5f6b78"/>
+<rect x="588" y="318" width="10" height="20" rx="2" fill="#d9534f"/>
+<rect x="62" y="318" width="14" height="12" rx="3" fill="#ffd66e"/>
+<!-- wheels -->
+<g><circle cx="160" cy="388" r="44" fill="#2b2f36"/><circle cx="160" cy="388" r="22" fill="#b9c2cc"/><circle cx="160" cy="388" r="8" fill="#6b7682"/>
+<circle cx="490" cy="388" r="44" fill="#2b2f36"/><circle cx="490" cy="388" r="22" fill="#b9c2cc"/><circle cx="490" cy="388" r="8" fill="#6b7682"/></g>
+<path d="M102 382 Q104 336 160 334 Q216 336 218 382" fill="none" stroke="#9aa7b5" stroke-width="3"/>
+<path d="M432 382 Q434 336 490 334 Q546 336 548 382" fill="none" stroke="#9aa7b5" stroke-width="3"/>
+</g>
+<!-- tradie -->
+<g>
+<!-- legs -->
+<path d="M372 340 L368 440 L396 440 L404 360 L414 440 L442 440 L440 340Z" fill="#1d2f57"/>
+<path d="M364 436 h36 q8 0 8 8 v4 h-46z M410 436 h36 q8 0 8 8 v4 h-46z" fill="#3b2a20"/>
+<!-- leaning arm (behind body) -->
+<path d="M438 262 Q470 270 486 296 L478 306 Q462 286 436 284Z" fill="#1d2f57"/>
+<path d="M478 296 q10 2 12 10 q-4 6 -14 4z" fill="#b67c56"/>
+<!-- torso: hi-vis shirt -->
+<path d="M362 262 Q366 238 394 232 L420 230 Q446 236 448 262 L444 346 L366 346Z" fill="#e8f04a"/>
+<path d="M362 262 Q366 238 394 232 L420 230 Q446 236 448 262 L447 290 L363 290Z" fill="#f2f75b"/>
+<path d="M366 318 H446 V330 H366Z" fill="#c9d1d9"/>
+<path d="M386 236 L384 346 M426 236 L428 346" stroke="#c9d1d9" stroke-width="10"/>
+<path d="M363 300 H447" stroke="#1d2f57" stroke-width="14"/>
+<path d="M396 232 L406 248 L416 232" fill="#1d2f57"/>
+<!-- phone arm -->
+<path d="M366 262 Q352 290 366 306 L392 296 L388 286 L374 292 Q370 280 380 268Z" fill="#e8f04a"/>
+<path d="M386 282 q14 -6 20 2 q2 10 -10 14 l-12 0z" fill="#b67c56"/>
+<rect x="388" y="262" width="20" height="34" rx="4" fill="#1b1f27" transform="rotate(-12 398 279)"/>
+<rect x="391" y="266" width="14" height="24" rx="2" fill="#7fb8f0" transform="rotate(-12 398 279)"/>
+<!-- head -->
+<rect x="396" y="210" width="20" height="24" fill="#a86f4b"/>
+<ellipse cx="406" cy="196" rx="25" ry="28" fill="#b67c56"/>
+<ellipse cx="381" cy="198" rx="5" ry="8" fill="#a86f4b"/>
+<path d="M383 200 Q384 226 406 228 Q428 226 430 200 Q430 214 406 216 Q384 214 383 200Z" fill="#3a2a22"/>
+<path d="M398 209 Q406 213 414 209" fill="none" stroke="#f4e6dc" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M392 192 q4 -3 8 0 M412 192 q4 -3 8 0" fill="none" stroke="#2b1d16" stroke-width="3" stroke-linecap="round"/>
+<!-- cap -->
+<path d="M380 184 Q380 160 406 158 Q432 160 432 184Z" fill="#1d2f57"/>
+<path d="M380 182 Q396 178 432 182 L444 186 Q440 190 430 190 L380 188Z" fill="#16264a"/>
+<circle cx="406" cy="160" r="3" fill="#2a427a"/>
+</g>
+</svg>
