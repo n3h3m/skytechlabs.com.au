@@ -45,7 +45,7 @@
     /* Button label follows the chosen intent */
     function label() {
       var email = form.querySelector('input[name="intent"][value="email"]').checked;
-      btn.innerHTML = (email ? 'Send my question' : 'Book my free call') + ' <span aria-hidden="true">→</span>';
+      btn.innerHTML = (email ? 'Send my question' : 'Request a call-back') + ' <span aria-hidden="true">→</span>';
     }
     form.querySelectorAll('input[name="intent"]').forEach(function (r) { r.addEventListener('change', label); });
     var params = new URLSearchParams(location.search);
