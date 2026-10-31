@@ -6,7 +6,7 @@
   if (!root) return;
   var API = 'https://api.cal.com/v2', USER = root.getAttribute('data-user'), EVENT = root.getAttribute('data-event'),
       FALLBACK = root.getAttribute('data-fallback'), LEN = +root.getAttribute('data-length') || 20, SYD = 'Australia/Sydney';
-  var PHONE = '0430 063 080', PHONE_HREF = 'tel:+61430063080', MAIL = 'nehem@skytechlabs.com.au';
+  var PHONE = root.getAttribute('data-phone'), PHONE_HREF = root.getAttribute('data-tel'), MAIL = root.getAttribute('data-mail');
   function q(s, el) { return (el || root).querySelector(s); }
   var tzSel = q('[data-tz]'), tzNote = q('[data-tznote]'), daysEl = q('[data-days]'), timesEl = q('[data-times]'),
       dayHead = q('[data-dayhead]'), pickEl = q('[data-pick]'), form = q('[data-bk-form]'), doneEl = q('[data-done]'),
